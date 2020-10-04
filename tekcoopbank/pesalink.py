@@ -2,7 +2,7 @@
 Pesalink Send to Account  subclass of Bank.
 """
 import requests
-import bank
+from . import bank
 
 
 class PesaLinkToAccount(bank.Bank):

@@ -2,7 +2,7 @@
 Account Send to Mpesa  subclass of Bank.
 """
 import requests
-import bank
+from . import bank
 
 
 class AccountToMpesa(bank.Bank):

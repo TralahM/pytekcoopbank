@@ -8,7 +8,7 @@ AccountFullStatement,
 AccountValidation
 """
 import requests
-import bank
+from . import bank
 
 
 class AccountBalance(bank.Bank):

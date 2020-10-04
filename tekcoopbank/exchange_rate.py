@@ -2,7 +2,7 @@
 Exchange Rate subclass of Bank.
 """
 import requests
-import bank
+from . import bank
 
 
 class ExchangeRate(bank.Bank):

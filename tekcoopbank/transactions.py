@@ -2,7 +2,7 @@
 Transaction Status subclass of Bank.
 """
 import requests
-import bank
+from . import bank
 
 
 class TransactionStatus(bank.Bank):
