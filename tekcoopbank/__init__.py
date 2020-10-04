@@ -1,19 +1,19 @@
 """Cooperative Bank of Kenya Python SDK."""
-from accounts import (
+from .accounts import (
     AccountBalance,
     AccountTransactions,
     AccountValidation,
     AccountMiniStatement,
     AccountFullStatement,
 )
-from mpesa import AccountToMpesa
-from pesalink import (
+from .mpesa import AccountToMpesa
+from .pesalink import (
     PesaLinkToAccount,
     PesaLinkToPhone,
 )
-from ift import IFTAccountToAccount
-from transactions import TransactionStatus
-from exchange_rate import ExchangeRate
+from .ift import IFTAccountToAccount
+from .transactions import TransactionStatus
+from .exchange_rate import ExchangeRate
 
 
 class CoopBank:
