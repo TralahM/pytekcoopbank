@@ -148,6 +148,12 @@ ift_to_account=COOP.ift_to_account.send(messageReference,
     callback=None)
 ```
 
+```json
+
+{"MessageReference": "sdkdddIdUdndpdxdcdedodr", "MessageDateTime": "2020-10-05T06:10:29", "MessageCode": "-5", "MessageDescription": "DEBIT AND CREDITS AMOUNTS NOT BALANCING"}
+
+```
+
 ### PesaLink Account to Account Transfer
 
 ```python
