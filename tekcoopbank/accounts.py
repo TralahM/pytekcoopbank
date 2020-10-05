@@ -23,11 +23,11 @@ class AccountBalance(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload)
+        response = requests.post(url, headers=headers, data=payload,verify=False)
         if callback is not None:
             return callback(response)
         else:
-            return response.json()
+            return response
 
 
 class AccountMiniStatement(bank.Bank):
@@ -45,7 +45,7 @@ class AccountMiniStatement(bank.Bank):
         if callback is not None:
             return callback(response)
         else:
-            return response.json()
+            return response
 
 
 class AccountFullStatement(bank.Bank):
@@ -63,7 +63,7 @@ class AccountFullStatement(bank.Bank):
         if callback is not None:
             return callback(response)
         else:
-            return response.json()
+            return response
 
 
 class AccountValidation(bank.Bank):
@@ -82,7 +82,7 @@ class AccountValidation(bank.Bank):
         if callback is not None:
             return callback(response)
         else:
-            return response.json()
+            return response
 
 
 class AccountTransactions(bank.Bank):
