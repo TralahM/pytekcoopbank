@@ -90,7 +90,7 @@ callback=lambda x: x.json()
 ### Check Account Balance
 
 ```python
-balance=COOP.balance.send(messageReference,accountNumber=None,callback=None)
+balance=COOP.balance.send(messageReference,accountNumber=None,callback=lambda x: x.json())
 ```
 
 ```json
@@ -107,7 +107,7 @@ balance=COOP.balance.send(messageReference,accountNumber=None,callback=None)
 ### Check Account Transactions
 
 ```python
-transactions=COOP.transactions.send(messageReference,accountNumber,NoOfTransactions=2,callback=None)
+transactions=COOP.transactions.send(messageReference,accountNumber,NoOfTransactions=2,callback=lambda x: x.json())
 ```
 
 ```json
@@ -125,7 +125,7 @@ transactions=COOP.transactions.send(messageReference,accountNumber,NoOfTransacti
 ### Account MiniStatement
 
 ```python
-mini_statement=COOP.mini_statement.send(messageReference,accountNumber,callback=None)
+mini_statement=COOP.mini_statement.send(messageReference,accountNumber,callback=lambda x: x.json())
 ```
 
 ```json
@@ -141,7 +141,7 @@ mini_statement=COOP.mini_statement.send(messageReference,accountNumber,callback=
 ### Account FullStatement
 
 ```python
-full_statement=COOP.full_statement.send(messageReference,accountNumber,callback=None)
+full_statement=COOP.full_statement.send(messageReference,accountNumber,callback=lambda x: x.json())
 ```
 
 ```json
@@ -157,7 +157,7 @@ full_statement=COOP.full_statement.send(messageReference,accountNumber,callback=
 ### Account Validation
 
 ```python
-validation=COOP.validation.send(messageReference,accountNumber,callback=None)
+validation=COOP.validation.send(messageReference,accountNumber,callback=lambda x: x.json())
 ```
 
 ```json
@@ -175,7 +175,7 @@ validation=COOP.validation.send(messageReference,accountNumber,callback=None)
 exchange_rate=COOP.exchange_rate.send(messageReference,
     fromCurrencyCode="KES",
     toCurrencyCode="USD",
-    callback=None)
+    callback=lambda x: x.json())
 ```
 
 ```json
@@ -202,7 +202,7 @@ ift_to_account=COOP.ift_to_account.send(messageReference,
     transactionCurrency="KES",
     narration="Payment",
     destinations=[{},],
-    callback=None)
+    callback=lambda x: x.json())
 ```
 
 ```json
@@ -225,7 +225,7 @@ pesalink_to_account=COOP.pesalink_to_account.send(messageReference,
     transactionCurrency="KES",
     narration="Payment",
     destinations=[{},],
-    callback=None)
+    callback=lambda x: x.json())
 ```
 
 ```json
@@ -247,7 +247,7 @@ pesalink_to_phone=COOP.pesalink_to_phone.send(messageReference,
     transactionCurrency="KES",
     narration="Payment",
     destinations=[{},],
-    callback=None)
+    callback=lambda x: x.json())
 ```
 
 ```json
@@ -268,7 +268,7 @@ to_mpesa=COOP.to_mpesa.send(messageReference,
     transactionCurrency="KES",
     narration="Payment",
     destinations=[{},],
-    callback=None)
+    callback=lambda x: x.json())
 ```
 
 ```json
@@ -284,7 +284,7 @@ to_mpesa=COOP.to_mpesa.send(messageReference,
 ### Transaction Status
 
 ```python
-transaction_status=COOP.transaction_status.send(messageReference,callback=None)
+transaction_status=COOP.transaction_status.send(messageReference,callback=lambda x: x.json())
 ```
 
 ```json
