@@ -28,7 +28,7 @@ class IFTAccountToAccount(bank.Bank):
         callback=None,
     ):
         token = self.token
-        url = self.host + "/FundsTransfer/Internal/2.0.0/SendToAccountt"
+        url = self.host + "/FundsTransfer/Internal/A2A/2.0.0"
         adestinations = []
         for dest in destinations:
             if not dest.get("AccountNumber"):
@@ -62,7 +62,8 @@ class IFTAccountToAccount(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload,verify=False)
+        response = requests.post(url, headers=headers,
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:

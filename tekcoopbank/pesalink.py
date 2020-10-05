@@ -62,7 +62,7 @@ class PesaLinkToAccount(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload,verify=False)
+        response = requests.post(url, headers=headers, json=payload,verify=False)
         if callback is not None:
             return callback(response)
         else:
@@ -121,7 +121,7 @@ class PesaLinkToPhone(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload)
+        response = requests.post(url, headers=headers, json=payload,verify=False)
         if callback is not None:
             return callback(response)
         else:

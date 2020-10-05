@@ -4,6 +4,12 @@ Bank Module Representing a Cooperative Bank.
 """
 import base64
 import requests
+import sys
+
+if not sys.warnoptions:
+    import warnings
+
+    warnings.simplefilter("ignore")
 
 
 class Bank:
@@ -23,8 +29,7 @@ class Bank:
         """
         self.config = config
         if self.config.get("env") == "sandbox":
-            self.host = "https://developer.co-opbank.co.ke:8280"
-            # self.host = "https://developer.co-opbank.co.ke:8243"
+            self.host = "https://developer.co-opbank.co.ke:8243"
         else:
             self.host = "https://developer.co-opbank.co.ke:8280"
 
@@ -39,14 +44,25 @@ class Bank:
                 "utf8",
             )
         )
+        authorization = authorization.decode()
         url = self.host + "/token"
         payload = {"grant_type": "client_credentials"}
         headers = {
-            "Authorization": f"Basic {authorization}",
+            "Authorization": "Basic " + authorization,
         }
-        response = requests.post(
-            url, data=payload, headers=headers, verify=False)
+        # print(authorization)
+        try:
+            response = requests.post(
+                url,
+                data=payload,
+                headers=headers,
+            )
+        except Exception:
+            response = requests.post(
+                url, data=payload, headers=headers, verify=False)
         try:
             return response.json().get("access_token")
+            # return response.json()
+            # return response
         except Exception:
             return response

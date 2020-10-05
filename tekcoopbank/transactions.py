@@ -17,7 +17,7 @@ class TransactionStatus(bank.Bank):
             "Authorization": f"Bearer {token}",
         }
         response = requests.post(url, headers=headers,
-                                 data=payload, verify=False)
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:

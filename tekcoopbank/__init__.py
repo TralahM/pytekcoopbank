@@ -1,4 +1,11 @@
 """Cooperative Bank of Kenya Python SDK."""
+import sys
+
+if not sys.warnoptions:
+    import warnings
+
+    warnings.simplefilter("ignore")
+
 from .accounts import (
     AccountBalance,
     AccountTransactions,

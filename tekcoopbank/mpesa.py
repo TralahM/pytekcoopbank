@@ -26,7 +26,7 @@ class AccountToMpesa(bank.Bank):
         callback=None,
     ):
         token = self.token
-        url = self.host + "/FundsTransfer/External/A2M/Mpesa/v1.0.0"
+        url = self.host + "/FundsTransfer/External/A2M/Mpesa/1.0.0"
         adestinations = []
         for dest in destinations:
             if not dest.get("MobileNumber"):
@@ -54,7 +54,8 @@ class AccountToMpesa(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload,verify=False)
+        response = requests.post(url, headers=headers,
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:

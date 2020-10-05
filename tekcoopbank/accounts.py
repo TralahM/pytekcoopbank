@@ -14,7 +14,7 @@ from . import bank
 class AccountBalance(bank.Bank):
     def send(self, messageReference, accountNumber, callback=None):
         token = self.token
-        url = self.host + "/Enquiry/AccountBalance/1.0.0/Account"
+        url = self.host + "/Enquiry/AccountBalance/1.0.0"
         payload = {
             "MessageReference": messageReference,
             "AccountNumber": accountNumber,
@@ -23,7 +23,8 @@ class AccountBalance(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload,verify=False)
+        response = requests.post(url, headers=headers,
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:
@@ -41,7 +42,8 @@ class AccountMiniStatement(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload)
+        response = requests.post(url, headers=headers,
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:
@@ -59,7 +61,8 @@ class AccountFullStatement(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload)
+        response = requests.post(url, headers=headers,
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:
@@ -78,7 +81,8 @@ class AccountValidation(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload)
+        response = requests.post(url, headers=headers,
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:
@@ -88,7 +92,7 @@ class AccountValidation(bank.Bank):
 class AccountTransactions(bank.Bank):
     def send(self, messageReference, accountNumber, NoOfTransactions=1, callback=None):
         token = self.token
-        url = self.host + "/Enquiry/AccountTransactions/1.0.0/Account"
+        url = self.host + "/Enquiry/AccountTransactions/1.0.0"
         payload = {
             "MessageReference": messageReference,
             "AccountNumber": accountNumber,
@@ -98,7 +102,8 @@ class AccountTransactions(bank.Bank):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}",
         }
-        response = requests.post(url, headers=headers, data=payload)
+        response = requests.post(url, headers=headers,
+                                 json=payload, verify=False)
         if callback is not None:
             return callback(response)
         else:
