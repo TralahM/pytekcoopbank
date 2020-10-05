@@ -121,3 +121,4 @@ _site
 *.out
 stime
 .conf.yml
+tests.py

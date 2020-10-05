@@ -84,10 +84,22 @@ COOP=tekcoopbank.setup_coop(config)
 balance=COOP.balance.send(messageReference,accountNumber=None,callback=None)
 ```
 
+```json
+
+{"MessageReference": "wotfhPpsbxWY", "MessageDateTime": "2020-10-05 06:20:01", "MessageCode": "-8", "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"}
+
+```
+
 ### Check Account Transactions
 
 ```python
 transactions=COOP.transactions.send(messageReference,accountNumber,NoOfTransactions=2,callback=None)
+```
+
+```json
+
+{"MessageReference": "kRaiNxCTtgbV", "MessageDateTime": "2020-10-05 06:20:09", "MessageCode": "-8", "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"}
+
 ```
 
 
@@ -108,6 +120,10 @@ full_statement=COOP.full_statement.send(messageReference,callback=None)
 
 ```python
 validation=COOP.validation.send(messageReference,accountNumber,callback=None)
+```
+
+```json
+{"MessageReference": "eDyClhTgirbw", "MessageDateTime": "2020-10-05 06:33:04", "MessageCode": "-1", "MessageDescription": "INVALID ACCOUNT NUMBER"}
 ```
 
 ### Get Exchange Rates
@@ -172,6 +188,10 @@ pesalink_to_account=COOP.pesalink_to_account.send(messageReference,
 transaction_status=COOP.transaction_status.send(messageReference,callback=None)
 ```
 
+```json
+{"MessageReference": "XHJaVzZGOsjB", "MessageDateTime": "2020-10-05 06:20:06", "MessageCode": -13, "MessageDescription": "MESSAGE REFERENCE DOES NOT EXIST", "Source": {"AccountNumber": None, "Amount": None, "TransactionCurrency": None, "Narration": None, "ResponseCode": None, "ResponseDescription": None}, "Destinations": None}
+
+```
 
 
 ## Test Cases
