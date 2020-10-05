@@ -32,11 +32,12 @@ class AccountBalance(bank.Bank):
 
 
 class AccountMiniStatement(bank.Bank):
-    def send(self, messageReference, callback=None):
+    def send(self, messageReference, accountNumber, callback=None):
         token = self.token
         url = self.host + "/Enquiry/MiniStatement/Account/1.0.0"
         payload = {
             "MessageReference": messageReference,
+            "AccountNumber": accountNumber,
         }
         headers = {
             "Content-Type": "application/json",
@@ -51,11 +52,12 @@ class AccountMiniStatement(bank.Bank):
 
 
 class AccountFullStatement(bank.Bank):
-    def send(self, messageReference, callback=None):
+    def send(self, messageReference, accountNumber, callback=None):
         token = self.token
         url = self.host + "/Enquiry/FullStatement/Account/1.0.0"
         payload = {
             "MessageReference": messageReference,
+            "AccountNumber": accountNumber,
         }
         headers = {
             "Content-Type": "application/json",
