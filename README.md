@@ -86,7 +86,12 @@ balance=COOP.balance.send(messageReference,accountNumber=None,callback=None)
 
 ```json
 
-{"MessageReference": "wotfhPpsbxWY", "MessageDateTime": "2020-10-05 06:20:01", "MessageCode": "-8", "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"}
+{
+    "MessageReference": "wotfhPpsbxWY",
+    "MessageDateTime": "2020-10-05 06:20:01",
+    "MessageCode": "-8",
+    "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"
+}
 
 ```
 
@@ -98,7 +103,12 @@ transactions=COOP.transactions.send(messageReference,accountNumber,NoOfTransacti
 
 ```json
 
-{"MessageReference": "kRaiNxCTtgbV", "MessageDateTime": "2020-10-05 06:20:09", "MessageCode": "-8", "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"}
+{
+    "MessageReference": "kRaiNxCTtgbV",
+    "MessageDateTime": "2020-10-05 06:20:09",
+    "MessageCode": "-8",
+    "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"
+}
 
 ```
 
@@ -123,7 +133,12 @@ validation=COOP.validation.send(messageReference,accountNumber,callback=None)
 ```
 
 ```json
-{"MessageReference": "eDyClhTgirbw", "MessageDateTime": "2020-10-05 06:33:04", "MessageCode": "-1", "MessageDescription": "INVALID ACCOUNT NUMBER"}
+{
+    "MessageReference": "eDyClhTgirbw",
+    "MessageDateTime": "2020-10-05 06:33:04",
+    "MessageCode": "-1",
+    "MessageDescription": "INVALID ACCOUNT NUMBER"
+}
 ```
 
 ### Get Exchange Rates
@@ -150,7 +165,12 @@ ift_to_account=COOP.ift_to_account.send(messageReference,
 
 ```json
 
-{"MessageReference": "sdkdddIdUdndpdxdcdedodr", "MessageDateTime": "2020-10-05T06:10:29", "MessageCode": "-5", "MessageDescription": "DEBIT AND CREDITS AMOUNTS NOT BALANCING"}
+{
+    "MessageReference": "sdkdddIdUdndpdxdcdedodr",
+    "MessageDateTime": "2020-10-05T06:10:29",
+    "MessageCode": "-5",
+    "MessageDescription": "DEBIT AND CREDITS AMOUNTS NOT BALANCING"
+}
 
 ```
 
@@ -195,7 +215,21 @@ transaction_status=COOP.transaction_status.send(messageReference,callback=None)
 ```
 
 ```json
-{"MessageReference": "XHJaVzZGOsjB", "MessageDateTime": "2020-10-05 06:20:06", "MessageCode": -13, "MessageDescription": "MESSAGE REFERENCE DOES NOT EXIST", "Source": {"AccountNumber": None, "Amount": None, "TransactionCurrency": None, "Narration": None, "ResponseCode": None, "ResponseDescription": None}, "Destinations": None}
+{
+    "MessageReference": "XHJaVzZGOsjB",
+    "MessageDateTime": "2020-10-05 06:20:06",
+    "MessageCode": -13,
+    "MessageDescription": "MESSAGE REFERENCE DOES NOT EXIST",
+    "Source": {
+        "AccountNumber": null,
+        "Amount": null,
+        "TransactionCurrency": null,
+        "Narration": null,
+        "ResponseCode": null,
+        "ResponseDescription": null
+    },
+    "Destinations": null
+}
 
 ```
 
