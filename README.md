@@ -78,6 +78,15 @@ COOP=tekcoopbank.setup_coop(config)
 
 ## Usage
 
+By default all methods return a `requests.HTTPResponse` object. To get a python
+`dict` you can pass a callback to the send functions.
+
+#### Example Callback Function To Pass to Send
+
+```python
+callback=lambda x: x.json()
+```
+
 ### Check Account Balance
 
 ```python
@@ -116,13 +125,32 @@ transactions=COOP.transactions.send(messageReference,accountNumber,NoOfTransacti
 ### Account MiniStatement
 
 ```python
-mini_statement=COOP.mini_statement.send(messageReference,callback=None)
+mini_statement=COOP.mini_statement.send(messageReference,accountNumber,callback=None)
 ```
+
+```json
+{
+    "MessageReference": "xdpdBdEdCdYdAdOdudtdDdw",
+    "MessageDateTime": "2020-10-05 07:45:54",
+    "MessageCode": "-8",
+    "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"
+}
+```
+
 
 ### Account FullStatement
 
 ```python
-full_statement=COOP.full_statement.send(messageReference,callback=None)
+full_statement=COOP.full_statement.send(messageReference,accountNumber,callback=None)
+```
+
+```json
+{
+    "MessageReference": "MdKdNdYdzdAdydQdtdpdedH",
+    "MessageDateTime": "2020-10-05 07:45:59",
+    "MessageCode": "-8",
+    "MessageDescription": "ACCOUNT AUTHORIZATION FAILURE"
+}
 ```
 
 
@@ -145,10 +173,24 @@ validation=COOP.validation.send(messageReference,accountNumber,callback=None)
 
 ```python
 exchange_rate=COOP.exchange_rate.send(messageReference,
-    accountNumber,
     fromCurrencyCode="KES",
     toCurrencyCode="USD",
     callback=None)
+```
+
+```json
+{
+    "MessageReference": "HdKdAdidLdtdGdadFdydxdS",
+    "MessageDateTime": "2020-10-05 07:33:16",
+    "MessageCode": "0",
+    "MessageDescription": "Success",
+    "FromCurrencyCode": "KES",
+    "ToCurrencyCode": "USD",
+    "RateType": "SPOT",
+    "Rate": "104.35",
+    "Tolerance": "23",
+    "MultiplyDivide": "D"
+}
 ```
 
 ### IFT Account to Account Transfer
@@ -185,10 +227,21 @@ pesalink_to_account=COOP.pesalink_to_account.send(messageReference,
     destinations=[{},],
     callback=None)
 ```
+
+```json
+{
+    "MessageReference": "rdhdjdvdYdKdidkdQdFdDdg",
+    "MessageDateTime": "2020-10-05T07:10:05",
+    "MessageCode": "-5",
+    "MessageDescription": "DEBIT AND CREDIT(S) AMOUNTS NOT BALANCING"
+}
+```
+
+
 ### PesaLink Account to Phone Transfer
 
 ```python
-pesalink_to_account=COOP.pesalink_to_account.send(messageReference,
+pesalink_to_phone=COOP.pesalink_to_phone.send(messageReference,
     phoneNumber,
     amount,
     transactionCurrency="KES",
@@ -196,10 +249,20 @@ pesalink_to_account=COOP.pesalink_to_account.send(messageReference,
     destinations=[{},],
     callback=None)
 ```
+
+```json
+{
+    "MessageReference": "tdUdXdOdJdVdgdsdNdddhdw",
+    "MessageDateTime": "2020-10-05T07:10:09",
+    "MessageCode": "-5",
+    "MessageDescription": "DEBIT AND CREDIT(S) AMOUNTS NOT BALANCING"
+}
+```
+
 ### Send to Mpesa
 
 ```python
-pesalink_to_account=COOP.pesalink_to_account.send(messageReference,
+to_mpesa=COOP.to_mpesa.send(messageReference,
     mobileNumber,
     amount,
     transactionCurrency="KES",
@@ -207,6 +270,16 @@ pesalink_to_account=COOP.pesalink_to_account.send(messageReference,
     destinations=[{},],
     callback=None)
 ```
+
+```json
+{
+    "MessageReference": "gdBdJdPdudOdpdLdndidrdj",
+    "MessageDateTime": "2020-10-05T07:10:13",
+    "MessageCode": "-5",
+    "MessageDescription": "DEBIT AND CREDIT(S) AMOUNTS NOT BALANCING"
+}
+```
+
 
 ### Transaction Status
 
